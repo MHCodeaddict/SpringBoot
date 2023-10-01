@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RandomNumberGenerator {
 	
-	public static Long generateRandomNumber() {
+	public Long generateRandomNumber() {
 		
 		Random random = new Random();
 		
