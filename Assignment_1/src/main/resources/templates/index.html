@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Random Numbers</title>
+</head>
+<body>
+    <h1>Create a record for your password/information</h1>
+	<form method="post" action="#" th:action="@{/addRecord}" th:object="${pwList}">
+		<label>ID (Auto):</label><input type="text" name="id" th:value="${generatedId}" /><br>
+		<label>Title:</label><input type="text" name="title"/><br>
+		<label>Username:</label><input type="text" name="username"/><br>
+		<label>Password:</label><input type="password" name="password"/><br>
+		<label>URL:</label><input type="text" name="url"/><br>
+		<label>Email:</label><input type="email" name="email"/><br>
+		<label for="notesfield">Notes:</label><br>
+			<textarea id="notesfield" name="notes" rows="3" cols="50">N/A</textarea><br>
+		<!-- Password: <input type="text" name="password" required/> -->
+		<input type="submit" value="Add record"/>
+		<br>
+		<a href="/viewRecords">View Records</a>
+		<a href="/findRecord">find a Record</a>
+	</form>
+		<!-- Title:<input type="text" th:field="*{title}" /><br>
+		Username:<input type="text" th:field="*{username}" /><br>
+		Password:<input type="password" th:field="*{password}" id="hidePass"/>
+					<input type="checkbox" onclick="myFunction()" />Show password<br>
+		URL:<input type="text" th:field="*{url}" /><br>
+		Email:<input type="text" th:field="*{email}" /><br>
+		<label for="notes">Notes:</label><br>
+			<textarea id="notes" name="textAreaNotes" rows="4" cols="50" th:field="*{notes}">
+				Any notes?
+			</textarea>-->
+</body>
+</html>

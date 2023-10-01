@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Search Results</title>
+</head>
+<body>
+<h1>Search Result</h1>
+    <div th:if="${recordNotFound}">
+        <p>Record not found.</p>
+    </div>
+    <div th:if="${result}">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Password</th>
+            </tr>
+            <tr>
+			<td th:text="${result.id}">000000000</td>
+			<td th:text="${result.title}">Mr.</td>
+			<td th:text="${result.username}">ApplePie</td>
+			<td th:text="${result.password}">*******</td>
+			<td th:text="${result.url}">google.ca</td>
+			<td th:text="${result.email}">example@exmaple.com</td>
+			<td th:text="${result.notes}">Anything can be said here</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <a href="/findRecord">Back to Search</a>
+</body>
+</html>

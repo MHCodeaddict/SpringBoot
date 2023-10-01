@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Search Results</title>
+</head>
+<body>
+<h1>Search for:</h1>
+	<form action="/findRecord" method="post">
+        <label for="searchId">Select ID:</label>
+        <select id="searchId" name="searchId">
+            <option value="">Select an ID</option>
+            <option th:each="record:${records}" th:value="${record.id}" th:text="${record.id}"></option>
+        </select>
+        <input type="submit" value="Search" />
+    </form>
+    <a href="/">Back to home page</a>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>records</title>
+</head>
+<body>
+	<table>
+		<tr th:each="record:${records}">
+		<td th:text="${record.id}">000000000</td>
+		<td th:text="${record.title}">Mr.</td>
+		<td th:text="${record.username}">ApplePie</td>
+		<td th:text="${record.password}">*******</td>
+		<td th:text="${record.url}">google.ca</td>
+		<td th:text="${record.email}">example@exmaple.com</td>
+		<td th:text="${record.notes}">Anything can be said here</td>
+	</table>
+
+</body>
+</html>
