@@ -7,14 +7,31 @@
 <body>
 <h1>Search for:</h1>
 	<form action="/findRecord" method="post">
-        <label for="searchId">Select ID:</label>
-        <select id="searchId" name="searchId">
-            <option value="">Select an ID</option>
-            <option th:each="record:${records}" th:value="${record.id}" th:text="${record.id}"></option>
-        </select>
+        <input type="text" name="searchId">
         <input type="submit" value="Search" />
     </form>
-    <a href="/">Back to home page</a>
-
+    <a href="/">Back to Home page</a>
+    <a href="/viewRecords">View all Records</a>
+        <div th:if="${recordNotFound}">
+        <p>Record not found.</p>
+    </div>
+    <div th:if="${result}">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Password</th>
+            </tr>
+            <tr>
+			<td th:text="${result.id}">000000000</td>
+			<td th:text="${result.title}">Mr.</td>
+			<td th:text="${result.username}">ApplePie</td>
+			<td th:text="${result.password}">*******</td>
+			<td th:text="${result.url}">google.ca</td>
+			<td th:text="${result.email}">example@exmaple.com</td>
+			<td th:text="${result.notes}">Anything can be said here</td>
+            </tr>
+        </table>
+    </div>
+    <br>
 </body>
 </html>

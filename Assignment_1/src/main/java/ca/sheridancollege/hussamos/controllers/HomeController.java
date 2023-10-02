@@ -37,17 +37,17 @@ public class HomeController {
 		pwList.addRecord(record);
 		Long generatedId = rng.generateRandomNumber();
 		model.addAttribute("generatedId", generatedId);
-
-		/*PasswordRecord record = new PasswordRecord();
-		record.setId(rng.generateRandomNumber());
-		pwList.addRecord(record);
-		*/return "index";
+		model.addAttribute("successful", "A record was added successfully!");
+		return "index";
 	}
 
 	@GetMapping("/viewRecords")
 	public String viewRecords(Model model) {
 		List<PasswordRecord> records = pwList.getAllRecords();
-		model.addAttribute("records", records);
+		if(records.size() > 0)
+			model.addAttribute("records", records);
+		else
+			model.addAttribute("noRecords","no records found");
 		return "viewRecords";
 	}
 	
@@ -59,12 +59,13 @@ public class HomeController {
 	}
 	
 	@PostMapping("/findRecord")
-	public String findRecord(Model model, @RequestParam Long searchId) {
+	public String findRecord(Model model, @RequestParam String searchId) {
+		Long findId = Long.valueOf(searchId);
 		List<PasswordRecord> records = pwList.getAllRecords();
 		PasswordRecord result = null;
 		model.addAttribute("records", records);
 		for(PasswordRecord record : records) {
-			if(record.getId().equals(searchId)) {
+			if(record.getId().equals(findId)) {
 				result = record;
 				break;
 			}
@@ -73,6 +74,6 @@ public class HomeController {
 		model.addAttribute("result", result);
 		model.addAttribute("recordNotFound", result == null);
 		
-		return "/result";
+		return "/findRecord";
 	}
 }

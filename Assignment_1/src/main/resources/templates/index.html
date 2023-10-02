@@ -6,7 +6,7 @@
 <body>
     <h1>Create a record for your password/information</h1>
 	<form method="post" action="#" th:action="@{/addRecord}" th:object="${pwList}">
-		<label>ID (Auto):</label><input type="text" name="id" th:value="${generatedId}" /><br>
+		<label>ID (Auto):</label><input type="text" name="id" th:value="${generatedId}" readonly /><br>
 		<label>Title:</label><input type="text" name="title"/><br>
 		<label>Username:</label><input type="text" name="username"/><br>
 		<label>Password:</label><input type="password" name="password"/><br>
@@ -17,9 +17,15 @@
 		<!-- Password: <input type="text" name="password" required/> -->
 		<input type="submit" value="Add record"/>
 		<br>
-		<a href="/viewRecords">View Records</a>
-		<a href="/findRecord">find a Record</a>
+		<a href="/viewRecords">View all Records</a>
+		<a href="/findRecord">Find a Record</a>
 	</form>
+		<div th:if="${successful}">
+			<p>A record was added successfully!</p>
+		</div>
+		<div th:if="${unsuccesful}">
+			<p>A request was unsuccessful!</p>
+		</div>
 		<!-- Title:<input type="text" th:field="*{title}" /><br>
 		Username:<input type="text" th:field="*{username}" /><br>
 		Password:<input type="password" th:field="*{password}" id="hidePass"/>

@@ -5,6 +5,7 @@
 <title>records</title>
 </head>
 <body>
+	<div th:if="${records}">
 	<table>
 		<tr th:each="record:${records}">
 		<td th:text="${record.id}">000000000</td>
@@ -15,6 +16,12 @@
 		<td th:text="${record.email}">example@exmaple.com</td>
 		<td th:text="${record.notes}">Anything can be said here</td>
 	</table>
+	</div>
+	<div th:if="${noRecords}">
+		<p>No records available to view!</p>
+	</div>
+	<a href="/">Back to Home Page</a>
+	<a href="/findRecord">Find a Record</a>
 
 </body>
 </html>
