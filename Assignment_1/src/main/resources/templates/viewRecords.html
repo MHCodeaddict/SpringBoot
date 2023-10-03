@@ -6,6 +6,7 @@
 </head>
 <body>
 	<div th:if="${records}">
+	<img src="/images/happyCat2.jpg" alt="sad cat" width="200px" height="200px">
 	<table>
 		<tr th:each="record:${records}">
 		<td th:text="${record.id}">000000000</td>
@@ -19,6 +20,7 @@
 	</div>
 	<div th:if="${noRecords}">
 		<p>No records available to view!</p>
+		<img src="/images/sadCatError2.jpg" alt="sad cat" width="200px" height="200px">
 	</div>
 	<a href="/">Back to Home Page</a>
 	<a href="/findRecord">Find a Record</a>
