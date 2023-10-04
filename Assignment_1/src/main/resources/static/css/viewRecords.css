@@ -1,0 +1,36 @@
+table, td, tr{
+	border: 2px solid black;
+	}
+td{
+	padding:10px;
+}
+.firstRow{
+	font-weight:bold;
+	background-color:peru;
+}
+.table-container{
+	background-color:moccasin;	
+	max-width:fit-content;
+	margin:0 auto;
+}
+.page-container{
+	max-width:fit-content;
+	background-color: beige;
+    text-align: center;
+    margin: 0 auto;
+
+}
+.link-container{
+	display:flex;
+	justify-content: space-around;
+}
+.head-container, img{
+	background-color: beige;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+html{
+	background-color:darkcyan;
+}

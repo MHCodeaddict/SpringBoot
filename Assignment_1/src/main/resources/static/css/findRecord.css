@@ -1,0 +1,39 @@
+table, td, tr{
+	border: 2px solid black;
+	}
+td{
+	padding:10px;
+}
+.firstRow{
+	font-weight:bold;
+	background-color:peru;
+}
+.page-container{
+	max-width:fit-content;
+	background-color: beige;
+    text-align: center;
+    margin: 0 auto;
+
+}
+.head-container, img{
+	background-color: beige;
+    text-align: center;
+    margin: 0 auto;
+
+}
+html{
+	background-color:darkcyan;
+}
+.link-container{
+	display:flex;
+	justify-content: space-around;
+}
+.form-label {
+    display: block;
+    margin-bottom: 4px;
+}
+.form-input {
+    width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
