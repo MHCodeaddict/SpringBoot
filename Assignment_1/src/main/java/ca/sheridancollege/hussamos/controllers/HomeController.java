@@ -2,6 +2,7 @@ package ca.sheridancollege.hussamos.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import ca.sheridancollege.hussamos.utilities.RandomNumberGenerator;
 
 @Controller
 public class HomeController {
+	@Autowired
 	private PasswordRecordList pwList;
 	private RandomNumberGenerator rng;
 	
@@ -28,7 +30,7 @@ public class HomeController {
 	@GetMapping("/")
 	public String index(Model model) {
 		Long generatedId = rng.generateRandomNumber();
-		model.addAttribute("generatedId", generatedId);
+		model.addAttribute("generatedId", String.format("%09d", generatedId));
 		return "index";
 	}
 		
@@ -36,7 +38,7 @@ public class HomeController {
 	public String addRecord(Model model, @ModelAttribute PasswordRecord record) {
 		pwList.addRecord(record);
 		Long generatedId = rng.generateRandomNumber();
-		model.addAttribute("generatedId", generatedId);
+		model.addAttribute("generatedId", String.format("%09d", generatedId));
 		model.addAttribute("successful", "A record was added successfully!");
 		return "index";
 	}
@@ -61,19 +63,11 @@ public class HomeController {
 	@PostMapping("/findRecord")
 	public String findRecord(Model model, @RequestParam String searchId) {
 		Long findId = Long.valueOf(searchId);
-		List<PasswordRecord> records = pwList.getAllRecords();
-		PasswordRecord result = null;
-		model.addAttribute("records", records);
-		for(PasswordRecord record : records) {
-			if(record.getId().equals(findId)) {
-				result = record;
-				break;
-			}
-		}
-		
-		model.addAttribute("result", result);
-		model.addAttribute("recordNotFound", result == null);
-		
+		PasswordRecord result = pwList.getRecord(findId);
+		if(result != null)
+			model.addAttribute("result", result);
+		else
+			model.addAttribute("recordNotFound", result==null);
 		return "/findRecord";
 	}
 }

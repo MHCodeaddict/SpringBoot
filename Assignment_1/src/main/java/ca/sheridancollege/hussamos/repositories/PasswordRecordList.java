@@ -5,8 +5,7 @@ import java.util.List;
 import ca.sheridancollege.hussamos.beans.PasswordRecord;
 
 public interface PasswordRecordList {
-	List<PasswordRecord> getAllRecords();
+	public List<PasswordRecord> getAllRecords();
 	public void addRecord(PasswordRecord record);
-	//public List<PasswordRecord> getRecord(Long id);
-
+	public PasswordRecord getRecord(Long searchId);
 }

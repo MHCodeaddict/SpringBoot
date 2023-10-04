@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Search Results</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/findRecord.css">
+	<title>Search Results</title>
 </head>
 <body>
-<h1>Search for:</h1>
-	<img src="/images/cat2.jpg" alt="find cat" width="200px" height="200px">
-	<form action="/findRecord" method="post">
-        <input type="text" name="searchId">
-        <input type="submit" value="Search" />
-    </form>
-        <div th:if="${recordNotFound}">
-        <p>Record not found.</p>
-        <img src="/images/sadCatError.jpg" alt="sad cat" width="200px" height="200px">
-    </div>
-    <div th:if="${result}">
-    	<p>Record Found!</p>
-    	<img src="/images/happycat.jpg" alt="happy cat" width="200px" height="200px">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Password</th>
-            </tr>
-            <tr>
-			<td th:text="${result.id}">000000000</td>
-			<td th:text="${result.title}">Mr.</td>
-			<td th:text="${result.username}">ApplePie</td>
-			<td th:text="${result.password}">*******</td>
-			<td th:text="${result.url}">google.ca</td>
-			<td th:text="${result.email}">example@exmaple.com</td>
-			<td th:text="${result.notes}">Anything can be said here</td>
-            </tr>
-        </table>
-    </div>
-    <br>
-    <a href="/">Back to Home page</a>
-    <a href="/viewRecords">View all Records</a>
+	<div class="page-container">
+		<div class="head-container">
+			<h1>Search for a Record</h1>
+			<img src="/images/cat2.jpg" alt="find cat" width="200px" height="200px">
+		<form action="/findRecord" method="post">
+	        <label class="form-label">Search by ID:</label><input class="" type="number" name="searchId">
+	        <input type="submit" value="Search" />
+	    </form>
+		</div>
+			<div class="result-container">
+		        <div th:if="${recordNotFound}">
+			        <p>Record not found.</p>
+			        <img src="/images/sadCatError.jpg" alt="sad cat" width="200px" height="200px">
+		    	</div>
+			    <div th:if="${result}">
+			    	<p>Record Found!</p>
+			    	<img src="/images/happycat.jpg" alt="happy cat" width="200px" height="200px">
+			        <table>
+			            <tr class="firstRow">
+							<td>ID</td>
+							<td>Title</td>
+							<td>Username</td>
+							<td>Password</td>
+							<td>URL</td>
+							<td>Email</td>
+							<td>Notes</td>
+						</tr>
+			            <tr>
+							<td th:text="${result.id}">000000000</td>
+							<td th:text="${result.title}">Mr.</td>
+							<td th:text="${result.username}">ApplePie</td>
+							<td th:text="${result.password}">*******</td>
+							<td th:text="${result.url}">google.ca</td>
+							<td th:text="${result.email}">example@exmaple.com</td>
+							<td th:text="${result.notes}">Anything can be said here</td>
+			            </tr>
+			        </table>
+			        </div>
+		    </div>
+		    <br>
+		    <div class="link-container">
+		    <a href="/">Back to Home page</a>
+		    <a href="/viewRecords">View all Records</a>
+		    </div>
+	</div>
 </body>
 </html>

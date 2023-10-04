@@ -20,5 +20,16 @@ public class PasswordRecordListImpl implements PasswordRecordList {
 	public void addRecord(PasswordRecord record) {
 		passwordRecords.add(record);
 	}
+	
+	@Override
+	public PasswordRecord getRecord( Long searchId) {
+		
+		for(PasswordRecord record : passwordRecords) {
+			if(record.getId().equals(searchId)) {
+				return record;
+			}
+		}
+		return null;
+	}
 
 }

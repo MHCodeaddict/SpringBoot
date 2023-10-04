@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<link rel="stylesheet" href="/css/index.css">
-    <title>Random Numbers</title>
+    <title>Home of the Records</title>
 </head>
 <body>
 	<div class="header-container">
@@ -19,11 +19,12 @@
 			<label class="form-label">Email:</label><input class="form-input" type="email" name="email"/><br>
 			<label class="form-label" for="notesfield">Notes:</label><br>
 				<textarea class="form-input" id="notesfield" name="notes" rows="3" cols="50">N/A</textarea><br>
-			<!-- Password: <input type="text" name="password" required/> -->
 			<label></label><input class="submit-button" id="submit" type="submit" value="Add record"/>
 			<br>
+			<div class="link-container">
 			<a href="/viewRecords">View all Records</a>
 			<a href="/findRecord">Find a Record</a>
+			</div>
 		</form>
 	</div>
 	<br>
