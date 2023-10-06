@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Records</title>
+<link rel="stylesheet" href="/css/viewRecords.css">
+</head>
+<body>
+	<div class="page-container">
+		<div class="head-container">
+		<h1>Records Table</h1>
+		<h5>All records are displayed here</h5>
+			<div th:if="${records}">
+				<img src="/images/happyCat2.jpg" alt="sad cat" width="200px" height="200px">
+			</div>
+		</div>
+		<div class="table-container">
+			<table>
+				<tr class="firstRow">
+					<td>ID</td>
+					<td>Title</td>
+					<td>Username</td>
+					<td>Password</td>
+					<td>URL</td>
+					<td>Email</td>
+					<td>Notes</td>
+				</tr>
+				<tr th:each="record:${records}">
+					<td th:text="${record.id}">000000000</td>
+					<td th:text="${record.title}">Mr.</td>
+					<td th:text="${record.username}">ApplePie</td>
+					<td th:text="${record.password}">*******</td>
+					<td th:text="${record.url}">google.ca</td>
+					<td th:text="${record.email}">example@exmaple.com</td>
+					<td th:text="${record.notes}">Anything can be said here</td>
+			</table>
+		</div>
+		<div th:if="${noRecords}">
+			<p>No records available to view!</p>
+			<img src="/images/sadCatError2.jpg" alt="sad cat" width="200px" height="200px">
+		</div>
+		<div class="link-container">
+			<a href="/">Back to Home Page</a>
+			<a href="/findRecord">Find a Record</a>
+		</div>
+	</div>
+
+</body>
+</html>

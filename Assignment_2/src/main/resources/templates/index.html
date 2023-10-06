@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/css/index.css">
+    <title>Home of the Records</title>
+</head>
+<body>
+	<div class="header-container">
+	    <h1>Create a record</h1>
+	    <img src="/images/cat1.jpg" alt="welcome cat" width="200px" height="200px">
+    </div>
+    <div class="form-container">
+		<form method="post" action="#" th:action="@{/addRecord}" th:object="${pwList}">
+			<label class="form-label">ID (Auto):</label><input class="form-input" type="text" name="id" th:value="${generatedId}" readonly /><br>
+			<label class="form-label">Title:</label><input class="form-input" type="text" name="title"/><br>
+			<label class="form-label">Username:</label><input class="form-input" type="text" name="username"/><br>
+			<label class="form-label">Password:</label><input class="form-input" type="password" name="password"/><br>
+			<label class="form-label">URL:</label><input class="form-input" type="text" name="url"/><br>
+			<label class="form-label">Email:</label><input class="form-input" type="email" name="email"/><br>
+			<label class="form-label" for="notesfield">Notes:</label><br>
+				<textarea class="form-input" id="notesfield" name="notes" rows="3" cols="50">N/A</textarea><br>
+			<label></label><input class="submit-button" id="submit" type="submit" value="Add record"/>
+			<br>
+			<div class="link-container">
+			<a href="/viewRecords">View all Records</a>
+			<a href="/findRecord">Find a Record</a>
+			</div>
+		</form>
+	</div>
+	<br>
+	<div th:if="${successful}">
+		<p>A record was added successfully!</p>
+	</div>
+	<div th:if="${unsuccesful}">
+		<p>A request was unsuccessful!</p>
+	</div>
+</body>
+</html>
