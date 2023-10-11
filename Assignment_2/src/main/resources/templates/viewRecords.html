@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="table-container">
-			<table>
+			<table th:if="${records != null AND records != ''}">
 				<tr class="firstRow">
 					<td>ID</td>
 					<td>Title</td>
@@ -24,6 +24,7 @@
 					<td>URL</td>
 					<td>Email</td>
 					<td>Notes</td>
+					<td></td><td></td>
 				</tr>
 				<tr th:each="record:${records}">
 					<td th:text="${record.id}">000000000</td>
@@ -33,8 +34,23 @@
 					<td th:text="${record.url}">google.ca</td>
 					<td th:text="${record.email}">example@exmaple.com</td>
 					<td th:text="${record.notes}">Anything can be said here</td>
+					<td><a th:href="@{/editRecordById/}+${record.id}">Edit</a></td>
+                	<td><a th:href="@{/deleteRecordById/}+${record.id}">Delete</a></td>
 			</table>
 		</div>
+		<div class="form-container">
+			<form th:if="${editRecord}" method="post" action="#" th:action="@{/insertRecord}" th:object="${record}">
+				<label class="form-label">ID (Auto):</label><input class="form-input" type="text" name="id" th:field="*{id}" readonly /><br>
+				<label class="form-label">Title:</label><input class="form-input" type="text" name="title" th:field="*{title}"/><br>
+				<label class="form-label">Username:</label><input class="form-input" type="text" name="username" th:field="*{username}"/><br>
+				<label class="form-label">Password:</label><input class="form-input" type="password" name="password" th:field="*{password}"/><br>
+				<label class="form-label">URL:</label><input class="form-input" type="text" name="url" th:field="*{url}"/><br>
+				<label class="form-label">Email:</label><input class="form-input" type="email" name="email" th:field="*{email}"/><br>
+				<label class="form-label" for="notesfield">Notes:</label><br>
+					<textarea class="form-input" id="notesfield" name="notes" rows="3" cols="50" th:field="*{notes}">N/A</textarea><br>
+				<label></label><input class="submit-button" id="submit" type="submit" value="Add record"/>
+				<br>
+			</form>
 		<div th:if="${noRecords}">
 			<p>No records available to view!</p>
 			<img src="/images/sadCatError2.jpg" alt="sad cat" width="200px" height="200px">

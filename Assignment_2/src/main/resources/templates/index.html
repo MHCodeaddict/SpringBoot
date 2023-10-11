@@ -10,7 +10,7 @@
 	    <img src="/images/cat1.jpg" alt="welcome cat" width="200px" height="200px">
     </div>
     <div class="form-container">
-		<form method="post" action="#" th:action="@{/addRecord}" th:object="${pwList}">
+		<form method="post" action="#" th:action="@{/insertRecord}" th:object="${pwList}">
 			<label class="form-label">ID (Auto):</label><input class="form-input" type="text" name="id" th:value="${generatedId}" readonly /><br>
 			<label class="form-label">Title:</label><input class="form-input" type="text" name="title"/><br>
 			<label class="form-label">Username:</label><input class="form-input" type="text" name="username"/><br>
