@@ -1,5 +1,8 @@
 package ca.sheridancollege.hussamos.beans;
-
+/*
+ * By: Mostafa Hussain
+ * Student ID: 991332466
+ */
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

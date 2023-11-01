@@ -1,3 +1,4 @@
+--Creates the Table password with some variables
 CREATE TABLE password(
 id LONG PRIMARY KEY,
 title VARCHAR(20),

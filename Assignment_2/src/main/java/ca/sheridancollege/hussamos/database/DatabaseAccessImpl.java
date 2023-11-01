@@ -1,5 +1,8 @@
 package ca.sheridancollege.hussamos.database;
-
+/*
+ * By: Mostafa Hussain
+ * Student ID: 991332466
+ */
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +12,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import ca.sheridancollege.hussamos.beans.PasswordRecord;
-
+//These methods are part implemented from the interface DatabaseAccess
+//and perform the necessary operation from CRUD
 @Repository
 public class DatabaseAccessImpl implements DatabaseAccess {
 	@Autowired
