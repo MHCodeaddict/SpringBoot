@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<header th:insert="~{fragments/headers.html :: header}"></header>
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<meta charset="UTF-8">
+<title>Home page</title>
+</head>
+<body>
+	<div class="container">
+		<div class="left-column"
+			th:insert="~{fragments/leftColumn.html :: div}"></div>
+		<div class="main-column">
+			<h3>Who are we?</h3>
+			<p class="aboutP">Welcome to Andromeda Intellect, the epitome of
+				academic brilliance and innovation! As the distinguished School of
+				Excellence, we take pride in fostering a dynamic learning
+				environment where knowledge meets creativity. At Andromeda
+				Intellect, we believe in nurturing the intellect of our students,
+				guiding them towards a future marked by success and positive impact.
+				Our dedicated faculty, state-of-the-art facilities, and a commitment
+				to academic excellence set the stage for an unparalleled educational
+				journey. Join us in exploring the boundless possibilities that
+				education at Andromeda Intellect offers, where every mind is
+				encouraged to reach for the stars and beyond. Welcome to a realm of
+				limitless learning and a commitment to brilliance – welcome to
+				Andromeda Intellect, the School of Excellence!</p>
+			<h3>Why attend Andromeda intellect?</h3>
+			<p class="aboutP">Embark on a transformative educational journey by choosing
+				Andromeda Intellect as your academic home. At Andromeda Intellect,
+				we stand as the epitome of academic brilliance and innovation,
+				offering a unique blend of dynamic learning environments and
+				creative exploration. Our commitment to nurturing the intellect of
+				our students sets us apart, guiding them towards a future defined by
+				success and positive impact. The distinguished faculty at Andromeda
+				Intellect is dedicated to providing unparalleled support, ensuring
+				that each student reaches their full potential. Our state-of-the-art
+				facilities create an inspiring backdrop for academic excellence,
+				fostering an atmosphere where boundless possibilities come to life.
+				By choosing to be a part of Andromeda Intellect, you are not just
+				joining a school; you are entering a realm of limitless learning and
+				a community that shares a collective commitment to brilliance. Join
+				us in reaching for the stars and beyond, as we welcome you to
+				Andromeda Intellect, the School of Excellence!</p>
+				<img class="school-map" src="/img/school-map.png" alt="school-map" style="width:500px;height:400px;">
+				<img class="school-photo" src="/img/school-photo.png" alt="school-photo" style="width:500px;height:400px;">
+		</div>
+		<div class="right-column"
+			th:insert="~{fragments/rightColumn.html :: div}"></div>
+	</div>
+</body>
+
+<footer class="footer-index"
+	th:replace="~{fragments/footer.html :: footer}"></footer>
+
+</html>

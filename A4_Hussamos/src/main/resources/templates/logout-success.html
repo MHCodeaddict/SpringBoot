@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Logout</title>
+</head>
+<body>
+<h1>You have been safely logged out.</h1>
+	<p>
+		<a href="#" th:href="@{/}">Back to Welcome page</a>
+	</p>
+	<form method="post" th:action="@{/login}">
+		<input type="submit" value="login" />
+	</form>
+</body>
+</html>

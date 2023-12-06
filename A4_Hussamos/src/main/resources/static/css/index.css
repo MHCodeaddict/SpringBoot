@@ -1,0 +1,133 @@
+/*
+.container {
+	display: flex;
+}
+.left-column{
+	float:left;
+}
+.main-column{
+	margin: 0 auto;
+}
+.right-column{
+	float:right;
+}
+.left-column, .right-column {
+	flex-shrink:1;
+	width:8%;
+	background-color: #f0f0f0;
+	padding: 20px;
+}
+
+
+
+
+
+
+.left-column, .right-column, .main-column {
+    flex: 1;
+}
+
+.main-column {
+	flex-grow:2;
+	height:300px;
+	width:80%;
+	padding: 20px;
+	background-color: rgb(223, 223, 255);
+	text-align: left;
+	overflow: hidden;
+}*/
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.left-column, .right-column, .main-column {
+    box-sizing: border-box;
+    padding: 20px; /* Adjust as needed */
+}
+.left-column a:hover {
+	background-color: 	rgb(186,85,211);
+}
+.left-column ul, .right-column {
+	list-style: none;
+	padding: 0;
+}
+.left-column a, .right-column {
+	text-decoration: none;
+	color: #333;
+	display: block;
+	padding: 8px;
+}
+
+.left-column, .right-column {
+    flex: 0 0 20%; /* Set the left and right columns to a fixed width of 20% */
+    background-color: 	rgb(221,160,221); /* Optional: Add background color for clarity */
+}
+
+.main-column {
+    flex: 1; /* Let the main column take the remaining space */
+    background-color:	rgb(216,191,216);
+}
+.school-map{
+	float:left;
+}
+.school-photo{
+	float:right;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+    .left-column, .right-column, .main-column {
+        width: 100%;
+    }
+}
+
+header {
+	background-color: 	rgb(148,0,211);
+	/* Set the header background color */
+	padding: 20px;
+	/* Add padding for better visual appearance */
+	text-align: center;
+}
+
+#system-name {
+	font-size: 50pt;
+	color: rgb(255, 255, 255);
+	/* Set the header text color */
+}
+
+#system-moto {
+	font-size: 40pt;
+	color: rgb(255, 255, 255);
+	/* Set the header text color */
+}
+
+#footer-copyright {
+	font-size: 10pt;
+	color: rgb(255, 255, 255);
+	/* Set the footer text color */
+}
+
+.aboutP {
+	color: rgb(0, 0, 0);
+	/* Set the body text color */
+}
+
+.footer-index {
+	background-color: 	rgb(148,0,211);
+	/* Set the footer background color */
+	padding: 10px;
+	/* Add padding for better visual appearance */
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}

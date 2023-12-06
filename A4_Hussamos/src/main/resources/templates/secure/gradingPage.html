@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="form" action="#" th:action="@{/gradingPage}" method="post">
+		Student ID: <input type="text" name="student_id" /><br> 
+		<input type="submit" value="Confirm">
+	</form>
+	<div th:if="${courses != null AND student != null}">
+		<table>
+			<tr>
+				<td>Student ID</td>
+				<td>Student Name</td>
+			</tr>
+			<tr>
+				<td th:text="${student.student_id}">000000000</td>
+				<td th:text="${student.first_name + ' ' + student.last_name}">name</td>
+			</tr>
+			<tr class="firstRow">
+				<td>Course ID</td>
+				<td>Course Name</td>
+				<td>Grade</td>
+			</tr>
+			<tr th:each="course:${courses}">
+				<td th:text="${course.course_id}">4</td>
+				<td th:text="${course.course_name}">JAVA</td>
+				<td th:text="${course.grade}">A+</td>
+				<td><a th:href="@{/gradingPage/{course_id}/{student_id}(course_id=${course.course_id}, student_id=${student.student_id})}">Edit Grade</a></td>
+			</tr>
+		</table>
+		<div th:if="${editGrade == true}">
+			<form name="form" action="#" th:action="@{/updateGrade}" method="post">
+				Name Grade: <input type="text" name="newGrade" th:value="${oldGrade}"/><br>
+				For Student ID: <input type="text" name="student_id" th:value="${student_id}"/><br>
+				For Course ID: <input type="text" name="course_id" th:value="${course_id}"/><br>
+				<input type="submit" value="Confirm">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

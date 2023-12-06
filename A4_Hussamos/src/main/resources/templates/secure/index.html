@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Welcome [[${user}]]</title>
+</head>
+<body>
+	<p>secure/index</p>
+		<ul>
+		<li  th:text="${role}"></li>
+		</ul>
+
+	<ul>
+		<li><a href="/secure/courseRegistrationPage">Course registration page</a></li>
+		<li><a href="/gradingPage">Grading page</a></li>
+		<li><a href="/transcriptPage">Transcript page</a></li>
+	</ul>
+	<form method="post" th:action="@{/logout}">
+		<input type="submit" value="Logout" />
+	</form>
+</body>
+</html>

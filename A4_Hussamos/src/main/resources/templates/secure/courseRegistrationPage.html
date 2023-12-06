@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Course registration</title>
+</head>
+<body>
+	<p>Course registration</p>
+	<div th:if="${student != null}">
+		<h4 th:if="${confirmed == true}">Student has been added to the system</h4>
+		<p>Student found</p>
+
+		<table >
+			<tr class="firstRow">
+				<td>COURSE ID</td>
+				<td>COURSE NAME</td>
+				<td></td>
+			</tr>
+			<tr th:each="course:${courses}">
+				<td th:text="${course.course_id}">000000000</td>
+				<td th:text="${course.course_name}">Mr.</td>
+				<td><a th:href="@{/enroll/}+${course.course_id}">Enroll</a></td>
+			</tr>
+		</table>
+	</div>
+	<div th:if="${student == null}">
+		<p>Student not found</p>
+		<h3 style="color:red;">Please Sign up as a student below</h3>
+		<form name="form" action="#" th:action="@{/addStudent}" th:object="${newStudent}" method="post" onsubmit="return verify()">
+		First name: <input type="text" name="first_name" /><br> 
+		Last name: <input type="text" name="last_name" /><br>
+		<input type="text" name="user_id" th:value="${user_id}" hidden/><br>
+		<input type="submit" value="Confirm">
+	</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Grade Transcripts</title>
+</head>
+<body>
+	<form name="form" action="#" th:action="@{/transcriptPage}" method="post">
+		Student ID: <input type="text" name="student_id" /><br> 
+		<input type="submit" value="Confirm">
+	</form>
+	<div th:if="${courses != null AND student != null}">
+		<table>
+			<tr>
+				<td>Student ID</td>
+				<td>Student Name</td>
+			</tr>
+			<tr>
+				<td th:text="${student.student_id}">000000000</td>
+				<td th:text="${student.first_name + ' ' + student.last_name}">name</td>
+			</tr>
+			<tr class="firstRow">
+				<td>Course ID</td>
+				<td>Course Name</td>
+				<td>Grade</td>
+				<td>Term</td>
+			</tr>
+			<tr th:each="course:${courses}">
+				<td th:text="${course.course_id}">4</td>
+				<td th:text="${course.course_name}">JAVA</td>
+				<td th:text="${course.grade}">A+</td>
+				<!--  --><td th:text="${course.term_name}">Fall</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
